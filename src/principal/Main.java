@@ -14,7 +14,8 @@ public class Main {
 			System.out.println("(1) Cadastrar Funcionário");
 			System.out.println("(2) Atualizar Funcionário");
 			System.out.println("(3) Excluir Funcionário");
-			System.out.println("(4) Consultar Funcionários");
+			System.out.println("(4) Obter Funcionário");
+			System.out.println("(5) Consultar Funcionários");
 
 			System.out.print("\nInforme a opção desejada: ");
 			Integer opcao = Integer.parseInt(scanner.nextLine());
@@ -32,6 +33,9 @@ public class Main {
 				funcionarioController.excluirFuncionario();
 				break;
 			case 4:
+				funcionarioController.obterFuncionario();
+				break;
+			case 5:
 				funcionarioController.consultarFuncionarios();
 				break;
 			default:

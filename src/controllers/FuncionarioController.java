@@ -91,6 +91,29 @@ public class FuncionarioController {
 		} else
 			System.out.println("\nFuncionário não encontrado. Verifique o ID.");
 	}
+	
+	public void obterFuncionario() throws Exception {
+		System.out.println("\nExclusão de Funcionário:\n");
+
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Informe o ID do Funcionário: ");
+		UUID id = UUID.fromString(scanner.nextLine());
+		scanner.close();
+
+		FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
+		Funcionario funcionario = funcionarioRepository.findById(id);
+
+		if (funcionario != null) {
+			
+			System.out.print("\nID do Funcionário: " + funcionario.getId());
+			System.out.print("\nNome: " + funcionario.getNome());
+			System.out.print("\nCPF: " + funcionario.getCpf());
+			System.out.print("\nMatrícula: " + funcionario.getMatricula());
+			System.out.print("\nSalário: " + funcionario.getSalario());
+			System.out.println("\n...");
+		}
+	}
 
 	public void consultarFuncionarios() throws Exception {
 		System.out.println("\nConsulta de Funcionários:\n");

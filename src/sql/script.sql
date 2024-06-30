@@ -1,6 +1,6 @@
-create table funcionario(
-			id			uuid			primary key,
-			nome		varchar(100)	not null,
-			cpf			varchar(14)		not null,
-			matricula	varchar(10)		not null,
-			salario		decimal(10, 2)	not null);
+CREATE TABLE  funcionario(
+			id			UUID				PRIMARY KEY,
+			nome		VARCHAR(100)	NOT NULL,
+			cpf			VARCHAR(14)		NOT NULL,
+			matricula	VARCHAR(10)		NOT NULL,
+			salario		DECIMAL(10, 2)	NOT NULL);

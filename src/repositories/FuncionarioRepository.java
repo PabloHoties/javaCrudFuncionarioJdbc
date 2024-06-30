@@ -17,7 +17,7 @@ public class FuncionarioRepository {
 		Connection connection = ConnectionFactory.getConnection();
 
 		PreparedStatement statement = connection
-				.prepareStatement("insert into funcionario(id, nome, cpf, matricula, salario) values(?, ?, ?, ?, ?)");
+				.prepareStatement("INSERT INTO funcionario(id, nome, cpf, matricula, salario) VALUES(?, ?, ?, ?, ?)");
 
 		statement.setObject(1, funcionario.getId());
 		statement.setString(2, funcionario.getNome());
@@ -33,7 +33,7 @@ public class FuncionarioRepository {
 		Connection connection = ConnectionFactory.getConnection();
 
 		PreparedStatement statement = connection
-				.prepareStatement("update funcionario set nome=?, cpf=?, matricula=?, salario=? where id=?");
+				.prepareStatement("UPDATE funcionario SET nome=?, cpf=?, matricula=?, salario=? WHERE id=?");
 
 		statement.setString(1, funcionario.getNome());
 		statement.setString(2, funcionario.getCpf());
@@ -48,7 +48,7 @@ public class FuncionarioRepository {
 	public void delete(Funcionario funcionario) throws Exception {
 		Connection connection = ConnectionFactory.getConnection();
 
-		PreparedStatement statement = connection.prepareStatement("delete from funcionario where id=?");
+		PreparedStatement statement = connection.prepareStatement("DELETE FROM funcionario WHERE id=?");
 
 		statement.setObject(1, funcionario.getId());
 
@@ -59,7 +59,7 @@ public class FuncionarioRepository {
 	public List<Funcionario> findAll() throws Exception {
 		Connection connection = ConnectionFactory.getConnection();
 
-		PreparedStatement statement = connection.prepareStatement("select * from funcionario order by nome");
+		PreparedStatement statement = connection.prepareStatement("SELECT id, nome, cpf, matricula, salario FROM funcionario ORDER BY nome");
 
 		ResultSet resultSet = statement.executeQuery();
 
@@ -84,7 +84,7 @@ public class FuncionarioRepository {
 	public Funcionario findById(UUID id) throws Exception {
 		Connection connection = ConnectionFactory.getConnection();
 
-		PreparedStatement statement = connection.prepareStatement("select * from funcionario where id=?");
+		PreparedStatement statement = connection.prepareStatement("SELECT id, nome, cpf, matricula, salario FROM funcionario WHERE id=?");
 
 		statement.setObject(1, id);
 		ResultSet resultSet = statement.executeQuery();
